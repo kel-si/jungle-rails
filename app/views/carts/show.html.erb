@@ -32,6 +32,10 @@
     </table>
   </div>
 
+
+  <% if enhanced_cart.length < 1 %>
+    <a href= '/' > Home </a>
+  <% else %>
   <div class="row">
     <div class="col-xs-12">
       <%= form_tag orders_path do %>
@@ -48,5 +52,6 @@
       <% end %>
     </div>
   </div>
+  <% end %>
 
 </section>
