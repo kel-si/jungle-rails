@@ -2,6 +2,9 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    puts @order.inspect
+    puts "---existing line items for order #{@order.id}---"
+    puts @order.line_items.inspect
   end
 
   def create
@@ -44,6 +47,7 @@ class OrdersController < ApplicationController
 
     enhanced_cart.each do |entry|
       product = entry[:product]
+      puts entry[:product].inspect
       quantity = entry[:quantity]
       order.line_items.new(
         product: product,
